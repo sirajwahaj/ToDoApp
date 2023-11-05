@@ -20,7 +20,8 @@ def read_tasks_file():
         return []
 
 
-def write_tasks_to_file(dic):
+def write_tasks_to_file():
+    task_dic = read_form()
     data = read_tasks_file()
     old_record = get_record(dic.get('id'))
     if old_record:

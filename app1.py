@@ -19,8 +19,7 @@ def home():
 # POST /tasks Lägger till en ny task. Tasken är ofärdig när den först läggs till.
 @app.route('/tasks', methods=['POST'])
 def task():
-    task_dic = model.read_form()
-    model.write_tasks_to_file(task_dic)
+    model.write_tasks_to_file()
     return redirect(url_for('home'))
 
 
