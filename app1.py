@@ -35,7 +35,8 @@ def get_record(task_id):
         return model.update_task(task_id)
         # model.get_record(task_id)
     elif request.method == 'DELETE':
-        return model.get_record(51)
+        if model.get_record(51):
+            return
 
 
 """ 

@@ -44,6 +44,6 @@ def update_task(id):
     if orig_record:
         orig_record.update(updated_record)
         write_tasks_to_file(orig_record)
-        return jsonify({"message": "Task updated successfully"})
+        return jsonify({"Message": "Task updated successfully"})
     else:
-        return jsonify({"error": "Task not found"}), 404
+        return jsonify({"Error": "Task not found"}), 404
