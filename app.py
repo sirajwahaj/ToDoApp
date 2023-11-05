@@ -198,9 +198,9 @@ def search_task_by_category(category_name):
 
 
 # #################### BACKEND : CATEGORY ##########################
-# 9. GET /tasks/category/: Retrieves all categories
-# 10. POST /tasks/category/: Adds a new category
-@app.route("/tasks/category", methods=["POST","GET"])
+# 9. GET /manage/category/: Retrieves all categories
+# 10. POST /manage/category/: Adds a new category
+@app.route("/manage/category", methods=["POST","GET"])
 def new_category():
     if request.method == "POST":
         new_category = {"id": model.get_max_id(is_task=False),
@@ -216,10 +216,10 @@ def new_category():
         return {"requirement": "Retrieves all categories",
             "result": model.category_items}
 
-# 11. GET /tasks/category/<int:category_id>: Retrieves a category with a specific ID.
-# 12. DELETE /tasks/category/<int:category_id>: Deletes a category with a specific ID.
-# 13. PUT /tasks/category/<int:category_id>: Updates a category with a specific ID.
-@app.route("/tasks/category/<int:category_id>", methods=["GET", "PUT", "DELETE"])
+# 11. GET /manage/category/<int:category_id>: Retrieves a category with a specific ID.
+# 12. DELETE /manage/category/<int:category_id>: Deletes a category with a specific ID.
+# 13. PUT /manage/category/<int:category_id>: Updates a category with a specific ID.
+@app.route("/manage/category/<int:category_id>", methods=["GET", "PUT", "DELETE"])
 def get_category(category_id):
     category_info = model.get_category_info(category_id) 
     if request.method == "GET":
