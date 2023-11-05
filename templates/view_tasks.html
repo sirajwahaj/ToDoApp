@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">All Tasks</h1>
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><strong>Title:</strong> {{ task.title }}</h5>
+                        <small>ID: {{ task.id }}</small>
+                    </div>
+                    <p class="mb-1"><strong>Description:</strong> {{ task.description }}</p>
+                    <p class="mb-1"><strong>Category:</strong> {{ task.category }}</p>
+                    <p><strong>Status:</strong> {{ task.status }}</p>
+
+                    <!-- Düzenle, Statü Güncelle ve Sil Düğmeleri -->
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-primary" href="/edit_task/{{ task.id }}">Edit</a>
+                        <a class="btn btn-danger" href="/delete_task/{{ task.id }}">Delete</a>
+                        <a class="btn btn-success" href="/update_status/{{ task.id }}">Update Status</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-primary mt-4" href="/">Home</a>
+    </div>
+
+    <!-- Bootstrap JS ve jQuery (Bootstrap bileşenleri için) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

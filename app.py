@@ -69,18 +69,44 @@ def update_status(task_id):
         save_tasks(tasks)
     return redirect(url_for('view_tasks'))
 
+#ID
+@app.route('/view_task', methods=['GET'])
+def view_task():
+    task_id = request.args.get('task_id')
+    if task_id:
+        task = get_task_by_id(int(task_id))
+        if task:
+            return render_template('view_task.html', task=task)
+        else:
+            return "Task not found!"
+    return render_template('view_task.html')
+
+def get_task_by_id(task_id):
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            return task
+    return None
+
 # JSON file
 def load_tasks():
-    if os.path.exists(db_file):
-        with open(db_file, "r", encoding="utf-8") as file:
-            tasks = json.load(file)
-    else:
-        tasks = []
-    return tasks
+    try:
+        if os.path.exists(db_file):
+            with open(db_file, "r", encoding="utf-8") as file:
+                tasks = json.load(file)
+        else:
+            tasks = []
+        return tasks
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error: {e}")
+        return []
 
 def save_tasks(tasks):
-    with open(db_file, 'w') as f:
-        json.dump(tasks, f, indent=2)
+    try:
+        with open(db_file, 'w') as f:
+            json.dump(tasks, f, indent=2)
+    except (IOError, json.JSONDecodeError) as e:
+        print(f"Error: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)

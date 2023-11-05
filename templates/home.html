@@ -1,28 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do App</title>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<form action="http://localhost:5000/tasks" method="post">
-    <label for="id">ID</label>
-    <input type="text" name="id" id="id"><br>
-    <label for="description">Description</label>
-    <input type="text" name="description" id="description"><br>
-    <label for="category">Category</label>
-    <input type="text" name="category" id="category"><br>
-    <label>Status</label><br>
-    <input type="radio" name="status" id="pending" value="pending">
-    <label for="pending">Pending</label><br>
-    <input type="radio" name="status" id="completed" value="completed">
-    <label for="completed">Completed</label><br>
-    <input type="submit" value="Save">
-</form>
-
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/logo.jpg" width="50" height="50" class="d-inline-block align-top" alt="Logo">
+        </a>
+    </nav>
 
+    <div class="container mt-4">
+        <h1>Welcome To Do List!</h1><br>
+        <h2>Add New Task</h2><br>
+        <form method="POST" action="/add_task">
+            <div class="form-group">
+                <label for="title">Task Title:</label>
+                <input type="text" class="form-control" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for "description">Task Description:</label>
+                <input type="text" class="form-control" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for "category">Task Category:</label>
+                <input type="text" class="form-control" name="category" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Task</button><hr><hr>
+        </form>
+
+        <h3>View All Tasks</h3>
+        <a href="/view_tasks" class="btn btn-primary">View all tasks</a><hr>
+        
+        <h3 style="display: flex;">View Task</h3>
+        <form method="GET" action="/view_task">
+            <div class="form-group">
+                <label for="task_id">Enter Task ID:</label>
+                <input type="number" class="form-control" name="task_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">View Task</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>View Task Details</h1>
+
+        <!-- Task ID Giriş Alanı ve "View Task" Düğmesi -->
+        <form method="GET" action="/view_task">
+            <div class="form-group">
+                <label for="task_id">Enter Task ID:</label>
+                <input type="number" class="form-control" name="task_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">View Task</button>
+        </form>
+
+        <!-- Görev Detayları -->
+        <ul class="list-group mt-4">
+            <li class="list-group-item">
+                <h5 class="mb-1"><strong>Title:</strong> {{ task.title }}</h5>
+                <p><strong>Description:</strong> {{ task.description }}</p>
+                <p><strong>Category:</strong> {{ task.category }}</p>
+                <p><strong>Status:</strong> {{ task.status }}</p>
+            </li>
+        </ul>
+
+        <!-- Düzenle, Statü Güncelle ve Sil Düğmeleri -->
+        <div class="btn-group" role="group">
+            <a class="btn btn-primary" href="/edit_task/{{ task.id }}">Edit</a>
+            <a class="btn btn-danger" href="/delete_task/{{ task.id }}">Delete</a>
+            <a class="btn btn-success" href="/update_status/{{ task.id }}">Update Status</a>
+            <a class="btn btn-primary ml-2" href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+
+        <!-- Silindi Mesajı -->
+        {% if task_deleted %}
+            <div class="alert alert-success mt-4" role="alert">
+                Task successfully deleted!
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS ve jQuery (Bootstrap bileşenleri için) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
