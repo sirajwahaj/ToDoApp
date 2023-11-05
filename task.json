@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "E 1.1 \u00c5lderskontroll (If-else)",
+        "description": "Skriv en funktion som tar in anv\u00e4ndarens \u00e5lder och sedan skriver ut om de \u00e4r minder\u00e5riga (under 18 \u00e5r), vuxna (mellan 18 och 65) eller pension\u00e4rer (\u00f6ver 65).",
+        "category": "Easy",
+        "status": "Completed"
+    },
+    {
+        "id": 2,
+        "title": "E 1.2 J\u00e4mnt eller udda (If-else)",
+        "description": "Skriv en funktion som tar in en enskild siffra och skriver ut om den \u00e4r udda eller j\u00e4mn.",
+        "category": "Easy",
+        "status": "Pending"
+    },
+    {
+        "id": 3,
+        "title": "E 1.3 - Intervall (If-else)",
+        "description": "Skapa funktionen in_range(lower, upper) som avg\u00f6r ifall ett tal \u00e4r inom det angivna intervallet. Om talet finns i \u00e4ndpunkterna r\u00e4knas det som inom intervallet.",
+        "category": "Easy",
+        "status": "Pending"
+    },
+    {
+        "id": 4,
+        "title": "M 1.1 - N\u00e4stlade listor",
+        "description": "En n\u00e4stlad lista \u00e4r en lista inuti en annan lista.\r\n\r\nSkriva en funktion som:\r\n\r\nSkapa en n\u00e4stlad lista d\u00e4r varje element \u00e4r en lista som inneh\u00e5ller tre tal.\r\nSkriver ut det f\u00f6rsta talet fr\u00e5n varje n\u00e4stlad lista med hj\u00e4lp av en loop.\r\nL\u00e4gger till ett fj\u00e4rde tal i varje n\u00e4stlad lista.\r\nAnv\u00e4nder en loop f\u00f6r att skriva ut summan av talen i varje n\u00e4stlad lista.",
+        "category": "Medium",
+        "status": "Pending"
+    },
+    {
+        "id": 5,
+        "title": "M 1.2 Mest f\u00f6rekommande talet",
+        "description": "Skapa en funktion som tar in lista som argument, och returnerar det v\u00e4rdet som f\u00f6rekommer flest g\u00e5nger i listan.",
+        "category": "Medium",
+        "status": "Pending"
+    }
+]

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% set active_page = 'new_tasks' %}
+{% from '_error_messages.html' import error_messages %}
+{% block title %} New task {% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-7 offset-lg-2 my-5">
+    <h1>Add new item</h1><hr>
+    <form method="POST" action="{{ url_for('new_tasks') }}" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      {{ error_messages(form.errors) }}
+      <div class="form-group">
+        {{ form.title.label }}
+        {{ form.title(class="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(class="form-control", rows="3") }}
+      </div>
+      <div class="form-group">
+        {{ form.category.label }}
+        {{ form.category(class="form-control") }}
+      </div>
+      <hr>
+      {{ form.submit(class="btn btn-primary form-control") }}
+    </form>
+  </div>
+</div>
+{% endblock %}

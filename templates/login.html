@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% set active_page = 'login' %}
+{% block title %}Get Token {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div>
+      <div class="my-4">
+        <h1>
+          Get Token now !!
+        </h1><hr>
+        
+      </div>
+    </div>
+    <div class="col-lg-9">
+      {% if is_authen %}
+          <h3 class="offset-lg-3">You are are </h3>
+        {% else %}
+        After you click "Get Token", you will be able to edit and delete task
+        <div class="row my-5 card-wrapper">
+          <form action="{{ url_for('login') }}" method="POST"> 
+            {{ form.submit(class="btn btn-primary form-control") }}
+          </form>
+        </div>
+        
+        {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% endblock %}
+

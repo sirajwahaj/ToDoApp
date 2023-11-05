@@ -1,0 +1,31 @@
+body {
+  padding-top: 56px;
+}
+
+.navbar-brand {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+
+.padded-rounded {
+  padding: 5px;
+  border-radius: 5px; /* You can adjust the value to control the roundness of the corners */
+}
+
+.filter-header {
+  color: #19191a;
+  background-color: #b5b3b3;
+}
