@@ -47,3 +47,15 @@ def update_task(id):
         return jsonify({"Message": "Task updated successfully"})
     else:
         return jsonify({"Error": "Task not found"}), 404
+
+
+def delete_task(id):
+    expird_task = get_record(id)
+    tasks = read_tasks_file()
+    tasks.remove(expird_task)
+    try:
+        with open('tasks.json', 'w') as file:
+            json.dump(tasks, file, indent=4)
+            return jsonify({"Message": "Task deleted successfuly."})
+    except json.JSONDecodeError:
+        return jsonify({"Message": "Task has not been deleted."})
