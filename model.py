@@ -22,6 +22,9 @@ def read_tasks_file():
 
 def write_tasks_to_file(dic):
     data = read_tasks_file()
+    old_record = get_record(dic.get('id'))
+    if old_record:
+        data.remove(old_record)
     data.append(dic)
     with open('tasks.json', 'w') as file:
         json.dump(data, file, indent=4)
@@ -43,4 +46,4 @@ def update_task(id):
         write_tasks_to_file(orig_record)
         return jsonify({"message": "Task updated successfully"})
     else:
-        return False
+        return jsonify({"error": "Task not found"}), 404
