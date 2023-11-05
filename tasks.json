@@ -1,20 +1,14 @@
 [
     {
-        "id": 89,
-        "description": "this is just a description",
-        "category": "books",
+        "id": 123,
+        "description": "Buy milk, eggs and bread",
+        "category": "Shopping",
         "status": "pending"
     },
     {
-        "id": 51,
-        "description": "29",
-        "category": "guests",
-        "status": "completed"
-    },
-    {
-        "id": 51,
-        "description": "good guests",
-        "category": "guests",
-        "status": "completed"
+        "id": 124,
+        "description": "Empty Dishwasher",
+        "category": "Cleaning",
+        "status": "pending"
     }
 ]
