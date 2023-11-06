@@ -9,6 +9,24 @@
         "id": 202,
         "description": "Laundry ",
         "category": "Chorse",
+        "status": "completed"
+    },
+    {
+        "id": 129,
+        "description": "description updated",
+        "category": "new category added to the list",
+        "status": "pending"
+    },
+    {
+        "id": 28,
+        "description": "new form",
+        "category": "edited",
+        "status": "pending"
+    },
+    {
+        "id": 45,
+        "description": "new form",
+        "category": "edited",
         "status": "pending"
     }
 ]

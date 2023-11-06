@@ -5,15 +5,16 @@ import model
 app = Flask(__name__)
 
 
-# GET /tasks Hämtar alla tasks. För VG: lägg till en parameter completed som kan filtrera på färdiga eller ofärdiga tasks.
 @app.route('/', methods=['GET'])
 def home():
     return render_template('home.html')
 
 
-# @app.route('/tasks')
-# def tasks():
-#     return jsonify(task1 = "tasks" )
+# GET /tasks Hämtar alla tasks. För VG: lägg till en parameter completed som kan filtrera på färdiga eller ofärdiga tasks.
+@app.route('/tasks', methods=['GET'])
+def get_all_tasks():
+    all_tasks = model.filter_by_status()
+    return jsonify(all_tasks)
 
 
 # POST /tasks Lägger till en ny task. Tasken är ofärdig när den först läggs till.
@@ -38,24 +39,29 @@ def get_record(task_id):
         return model.delete_task(task_id)
 
 
-""" 
-@app.route('/tasks/id')
-def update_task():
-    id = int(request.args.get('task_id'))
-    # description = request.args.get('desc')
-    # category = request.args.get('category')
-    # status = request.args.get('status')
-
-    return redirect('/',)
-@app.route('/tasks/<task_id>')
-def update_taskid(task_id):
-    return task_id """
-
 # PUT /tasks/{task_id}/complete Markerar en task som färdig.
+@app.route('/tasks/<int:task_id>/complete', methods=['PUT'])
+def mark_complete(task_id):
+    return model.mark_complete(task_id)
+
 
 # GET /tasks/categories/ Hämtar alla olika kategorier.
+@app.route('/tasks/categories', methods=['GET'])
+def get_categories():
+    return model.get_categories()
+
 
 # GET /tasks/categories/{category_name} Hämtar alla tasks från en specifik kategori.
+@app.route('/tasks/categories/<category_name>', methods=['GET'])
+def filter_by_category(category_name):
+    return model.filter_by_category(category_name)
+
+
+@app.route('/tasks/by/categories', methods=['GET'])
+def get_category():
+    category = model.get_category()
+    return jsonify(category)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
